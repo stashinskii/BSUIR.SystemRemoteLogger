@@ -1,0 +1,9 @@
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\bin\Debug\netstandard2.0\SystemRemoteLogger.Services.deps.json
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\bin\Debug\netstandard2.0\SystemRemoteLogger.Services.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\bin\Debug\netstandard2.0\SystemRemoteLogger.Services.pdb
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.csprojAssemblyReference.cache
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.csproj.CoreCompileInputs.cache
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.AssemblyInfoInputs.cache
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.AssemblyInfo.cs
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.pdb
