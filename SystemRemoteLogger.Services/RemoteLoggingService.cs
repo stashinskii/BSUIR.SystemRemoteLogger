@@ -6,5 +6,7 @@ namespace SystemRemoteLogger.Services
 {
     public class RemoteLoggingService
     {
+        //TODO MailSender API
+        //TODO UDP Client Api
     }
 }
