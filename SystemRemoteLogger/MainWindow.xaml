@@ -1,0 +1,225 @@
+﻿<Window x:Class="SystemRemoteLogger.WPF.MainWindow"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}" Width="1160.051" Height="558.651">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding MyCommand}" Key="N"/>
+    </Window.InputBindings>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid RenderTransformOrigin="0.256,0.505">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas Grid.Row="0" Grid.Column="0">
+            <StackPanel Orientation="Vertical" Margin="20">
+                <StackPanel Orientation="Horizontal">
+                    <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="35" IsIndeterminate="True" />
+                    <Label>System Remote Logger</Label>
+                </StackPanel>
+                <Button Margin="0,5">Show more data</Button>
+                <Button Margin="0,5">Show more data</Button>
+                <Button Margin="0,5">Show more data</Button>
+                <Button Margin="0,5">Show more data</Button>
+                <materialDesign:Card
+  Background="{DynamicResource MaterialDesignBackground}">
+                    <StackPanel Width="300">
+                        <Expander
+      HorizontalAlignment="Stretch"
+      Header="Expander Example 2a">
+                            <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                                <TextBlock
+          Text="Your Content" />
+                                <TextBlock
+          Opacity=".68"
+          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                        <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                        <Expander HorizontalAlignment="Stretch" Header="Expander Example 2b">
+                            <StackPanel Orientation="Vertical"  TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
+                                <TextBlock
+          Text="Your Content" />
+                                <TextBlock
+          Opacity=".68"
+          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                        <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+                        <Expander
+      HorizontalAlignment="Stretch"
+      Header="Expander Example 2c">
+                            <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+                                <TextBlock
+          Text="Your Content" />
+                                <TextBlock
+          Opacity=".68"
+          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                </materialDesign:Card>
+            </StackPanel>
+        </Canvas>
+        <Canvas Margin="20" Grid.Row="0" Grid.Column="1">
+            <materialDesign:Flipper 
+  Style="{StaticResource MaterialDesignCardFlipper}">
+                <materialDesign:Flipper.FrontContent>
+                    <Grid
+      Height="256"
+      Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+          Height="160" />
+                            <RowDefinition
+          Height="*" />
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone
+        Mode="PrimaryLight"
+        VerticalAlignment="Stretch">
+                            <materialDesign:PackIcon
+          Kind="AccountCircle"
+          Height="128"
+          Width="128"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center" />
+                        </materialDesign:ColorZone>
+                        <StackPanel
+        Grid.Row="1"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+                            <TextBlock>
+        James Willock
+                            </TextBlock>
+                            <Button
+          Style="{StaticResource MaterialDesignFlatButton}"
+          Command="{x:Static materialDesign:Flipper.FlipCommand}"
+          Margin="0 4 0 0">
+                                EDIT
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </materialDesign:Flipper.FrontContent>
+                <materialDesign:Flipper.BackContent>
+                    <Grid
+      Height="256"
+      Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+          Height="Auto" />
+                            <RowDefinition
+          Height="*" />
+                        </Grid.RowDefinitions>
+                        <materialDesign:ColorZone
+        Mode="Accent"
+        Padding="6">
+                            <StackPanel
+          Orientation="Horizontal">
+                                <Button
+            Style="{StaticResource MaterialDesignToolForegroundButton}"
+            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+            HorizontalAlignment="Left">
+                                    <materialDesign:PackIcon
+              Kind="ArrowLeft"
+              HorizontalAlignment="Right" />
+                                </Button>
+                                <TextBlock
+            Margin="8 0 0 0"
+            VerticalAlignment="Center">
+          EDIT USER
+                                </TextBlock>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+                        <Grid
+        Grid.Row="1"
+        Margin="0 6 0 0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Width="172">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBox
+          materialDesign:HintAssist.Hint="First name"
+          materialDesign:HintAssist.IsFloating="True"
+          Margin="0 12 0 0">
+                                James
+                            </TextBox>
+                            <TextBox
+          Grid.Row="1"
+          materialDesign:HintAssist.Hint="Last name"
+          materialDesign:HintAssist.IsFloating="True"
+          Margin="0 12 0 0">
+                                Willock
+                            </TextBox>
+                            <StackPanel
+          Grid.Row="2"
+          Orientation="Horizontal"
+          Margin="0 12 0 0"
+          HorizontalAlignment="Right">
+                                <TextBlock
+            VerticalAlignment="Center">
+          Email Contact
+                                </TextBlock>
+                                <ToggleButton
+            Margin="8 0 0 0"></ToggleButton>
+                            </StackPanel>
+                            <StackPanel
+          Grid.Row="3"
+          Orientation="Horizontal"
+          Margin="0 12 0 0"
+          HorizontalAlignment="Right">
+                                <TextBlock
+            VerticalAlignment="Center">
+          Telephone Contact
+                                </TextBlock>
+                                <ToggleButton
+            Margin="8 0 0 0"></ToggleButton>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </materialDesign:Flipper.BackContent>
+            </materialDesign:Flipper>
+        </Canvas>
+    </Grid>
+</Window>

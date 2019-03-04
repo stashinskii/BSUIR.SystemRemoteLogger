@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.WPF", "SystemRemoteLogger\SystemRemoteLogger.WPF.csproj", "{36806EC3-D799-467C-B3DB-997115B06B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.Services", "SystemRemoteLogger.Services\SystemRemoteLogger.Services.csproj", "{1CDE9191-3C29-46EE-A56B-E65D580FA75E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SystemRemoteLogger.Services", "SystemRemoteLogger.Services", "{98C9E1B5-7E09-4EAF-B1E7-064202B9FDE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.Services.Tests", "SystemRemoteLogger.Services.Tests\SystemRemoteLogger.Services.Tests.csproj", "{D3122C71-94F5-4885-8697-8C9A7D06287A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36806EC3-D799-467C-B3DB-997115B06B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36806EC3-D799-467C-B3DB-997115B06B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36806EC3-D799-467C-B3DB-997115B06B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36806EC3-D799-467C-B3DB-997115B06B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CDE9191-3C29-46EE-A56B-E65D580FA75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CDE9191-3C29-46EE-A56B-E65D580FA75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CDE9191-3C29-46EE-A56B-E65D580FA75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CDE9191-3C29-46EE-A56B-E65D580FA75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3122C71-94F5-4885-8697-8C9A7D06287A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3122C71-94F5-4885-8697-8C9A7D06287A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3122C71-94F5-4885-8697-8C9A7D06287A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3122C71-94F5-4885-8697-8C9A7D06287A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CDE9191-3C29-46EE-A56B-E65D580FA75E} = {98C9E1B5-7E09-4EAF-B1E7-064202B9FDE6}
+		{D3122C71-94F5-4885-8697-8C9A7D06287A} = {98C9E1B5-7E09-4EAF-B1E7-064202B9FDE6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {728C6281-D775-4A53-91B2-709E60F887D3}
+	EndGlobalSection
+EndGlobal
