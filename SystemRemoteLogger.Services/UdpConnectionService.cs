@@ -23,5 +23,26 @@ namespace SystemRemoteLogger.Services
         private bool IsConnectionAlive;
         private string userName = "Current OS";
         #endregion
+
+        public void Disconnect()
+        {
+            if (IsConnectionAlive)
+            {
+                IsConnectionAlive = false;
+               // SendMessage("disconnected from chat");
+                recievingUdpClient.DropMulticastGroup(multiCastAddress);
+                recievingUdpClient.Close();
+            }
+        }
+
+        public void Connect()
+        {
+            // 224.0.0.0 to 239.255.255.255.
+            multiCastAddress = IPAddress.Parse("239.0.0.222");
+            senderUdpClient = new UdpClient();
+            senderUdpClient.JoinMulticastGroup(multiCastAddress);
+            remoteEndPoint = new IPEndPoint(multiCastAddress, port);
+            //SendMessage("connected to chat");
+        }
     }
 }
