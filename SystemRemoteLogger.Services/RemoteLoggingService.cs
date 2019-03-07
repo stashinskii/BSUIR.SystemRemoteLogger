@@ -6,6 +6,5 @@ namespace SystemRemoteLogger.Services
 {
     public class RemoteLoggingService
     {
-        
     }
 }
