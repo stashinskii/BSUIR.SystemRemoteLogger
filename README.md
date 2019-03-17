@@ -1,5 +1,6 @@
 ### System Remote Logger (SRL)
-Coursework developed by **Herman Stashynski (Герман Сташинский), 653503**
+Coursework developed by **Herman Stashynski (Герман Сташинский), 653503** 
+[Read russian version](#Russian-version)
 
 #### This solution provides ability of logging OS interactions in Windows (and API for Linux) through network protocols (TCP/IP). 
 ###### Services API layer represented as cross-platform .NET Standard Library for Linux and Windows and may be used across any environments.
@@ -20,7 +21,7 @@ Small brief to provided assemleys:
 | Services.Tests | Unit and mock tests for System Remote Logger (SRL) API | 
 | WPF | Presentation layer built with Windows Presentation Foundation and MDIX (Material Design In XAML)|
 
-
+#### Russian version:
 #### Данный проект предоставляет возможность журналирования взаимодействий с операционной системой Windows (а также Linux посредством API) через сетевые протоколы (TCP/IP).
 
 ###### Уровень API-сервисов представлен в виде кроссплатформенной .NET Standard бибилотеки для ОС Linux и Windows и может быть использован для разработки на любых средах.
