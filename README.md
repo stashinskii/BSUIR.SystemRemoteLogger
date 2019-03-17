@@ -1,5 +1,5 @@
 ### System Remote Logger (SRL)
-Coursework developed by **Herman Stashynski (Герман Сташинский), 653503** 
+Coursework developed by **Herman Stashynski (Герман Сташинский), 653503**  
 [Read russian version](#Russian-version)
 
 #### This solution provides ability of logging OS interactions in Windows (and API for Linux) through network protocols (TCP/IP). 
