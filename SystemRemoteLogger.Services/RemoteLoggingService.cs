@@ -8,3 +8,4 @@ namespace SystemRemoteLogger.Services
     {
     }
 }
+ 
