@@ -265,3 +265,13 @@ __pycache__/
 *.ide-wal
 
 *.cache
+
+SystemRemoteLogger/obj/Debug/SystemRemoteLogger\.WPF_MarkupCompile\.i\.lref
+
+SystemRemoteLogger\.Services/bin/Debug/netstandard2\.0/SystemRemoteLogger\.Services\.deps\.json
+
+*.dll
+
+*.exe
+
+SystemRemoteLogger/obj/Debug/SystemRemoteLogger\.WPF\.csproj\.FileListAbsolute\.txt
