@@ -1,0 +1,69 @@
+﻿<Window x:Class="SystemRemoteLogger.WPF.UdpLoggingScreen"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}" Width="447.833" Height="543.425">
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding MyCommand}" Key="N"/>
+    </Window.InputBindings>
+    <StackPanel Orientation="Vertical" Margin="10,10,10,10">
+        <materialDesign:Card Margin="10,10,10,10" VerticalAlignment="Stretch">
+            <ListView x:Name="lisbox" Height="200" Width="417">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </materialDesign:Card>
+        <materialDesign:Card Margin="10,10,10,10" VerticalAlignment="Stretch" Height="127">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,14,0,10">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,10,0">
+                    <TextBox x:Name="userNameTextBox"  Margin="10" HorizontalContentAlignment="Stretch" Width="138" materialDesign:HintAssist.Hint="Nickname..." Height="24" Canvas.Left="27" TextWrapping="Wrap"/>
+                    <Button x:Name="buttonConnect" Content="Connect"  VerticalAlignment="Top" Width="90" Margin="10,10,10, 0" Click="ConnectionButton_Click"/>
+                    <Button x:Name="buttonDisconnect" Style="{StaticResource MaterialDesignRaisedAccentButton}" Content="Disconnect"  VerticalAlignment="Top" IsEnabled="true" Margin="0,10,10,10" Click="ButtonDisconnect_Click" >
+                        <Button.CommandParameter>
+                            <!-- the simplest view model of all, a DateTime. the view can be found in the resources of MainWindow.xaml  -->
+                            <system:DateTime xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                1966-JUL-30
+                            </system:DateTime>
+                        </Button.CommandParameter>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,10,0">
+                    <TextBox x:Name="messageTextBox" Margin="10" materialDesign:HintAssist.Hint="Message..." Height="24" TextWrapping="Wrap" Width="240"/>
+                    <Button x:Name="buttonSend" Content="Send"  Width="101" Margin="10,10,10,10" Click="SendButton_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </materialDesign:Card>
+        <materialDesign:Card
+  Background="{DynamicResource MaterialDesignBackground}" Margin="10,10,10,10">
+            <StackPanel>
+                <Expander HorizontalAlignment="Stretch" Header="Networking info">
+                    <StackPanel Orientation="Vertical" TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
+                        <TextBlock Text="Herman Stashynski, 653503" />
+                        <TextBlock x:Name="LocalIpBox" Opacity=".68" Text="" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Expander>
+                <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+
+                <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+            </StackPanel>
+        </materialDesign:Card>
+    </StackPanel>
+</Window>
