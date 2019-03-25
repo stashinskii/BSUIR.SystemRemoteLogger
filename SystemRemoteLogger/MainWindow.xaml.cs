@@ -17,5 +17,11 @@ namespace SystemRemoteLogger.WPF
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UdpLoggingScreen udpScreen = new UdpLoggingScreen();
+            udpScreen.Show();
+        }
     }
 }

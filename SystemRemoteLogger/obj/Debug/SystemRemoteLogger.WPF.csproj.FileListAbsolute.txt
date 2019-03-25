@@ -21,3 +21,5 @@ C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\Syst
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\SystemRemoteLogger.WPF.csproj.CopyComplete
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\SystemRemoteLogger.WPF.exe
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\SystemRemoteLogger.WPF.pdb
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\UdpLoggingScreen.baml
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\UdpLoggingScreen.g.cs

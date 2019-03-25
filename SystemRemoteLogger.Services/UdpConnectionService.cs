@@ -9,6 +9,9 @@ namespace SystemRemoteLogger.Services
 {
     public class UdpConnectionService
     {
+        public delegate void EncryptedDataEventHandler(object sender, EncodingEventArgs e);
+        public event EncryptedDataEventHandler NewMessageOn;
+
         #region UDP clients
         private UdpClient senderUdpClient;
         private UdpClient recievingUdpClient;
@@ -21,9 +24,15 @@ namespace SystemRemoteLogger.Services
 
         #region Configuration
         private const int port = 65000;
-        private bool IsConnectionAlive;
+        public bool IsConnectionAlive { get; set; }
         private string userName = "Current OS";
         #endregion
+
+        public UdpConnectionService(bool connectionStatus, string userName)
+        {
+            this.IsConnectionAlive = connectionStatus;
+            this.userName = userName;
+        }
 
         public void Disconnect()
         {
@@ -46,7 +55,7 @@ namespace SystemRemoteLogger.Services
             //SendMessage("connected to chat");
         }
 
-        private void SendMessage(string message)
+        public void SendMessage(string message)
         {
             try
             {
@@ -61,7 +70,22 @@ namespace SystemRemoteLogger.Services
             }
         }
 
-        private void Listen()
+        
+
+        public string GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No network adapters with an IPv4 address in the system!");
+        }
+
+        public void Listen()
         {
             try
             {
@@ -79,14 +103,12 @@ namespace SystemRemoteLogger.Services
                 while (IsConnectionAlive)
                 {
                     byte[] data = recievingUdpClient.Receive(ref localEp);
-                    string message = EncryptionHelper.Decode(data);
-                    //Do smth!!!
+                    NewMessageOn(this, new EncodingEventArgs { dataToDecode = data}); 
                 }
             }
             catch (Exception ex)
             {
-                //catch
-                //MessageBox.Show(ex.Message, "Error while listeting port");
+               
             }
         }
     }

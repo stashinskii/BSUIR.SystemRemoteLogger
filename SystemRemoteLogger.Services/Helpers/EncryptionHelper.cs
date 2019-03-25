@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SystemRemoteLogger.Services.Helpers
 {
-    internal static class EncryptionHelper
+    public static class EncryptionHelper
     {
-        internal static byte[] Encode(string data) => Encoding.UTF8.GetBytes(data);
-        internal static string Decode(byte[] data) => Encoding.UTF8.GetString(data);
+        public static byte[] Encode(string data) => Encoding.UTF8.GetBytes(data);
+        public static string Decode(byte[] data) => Encoding.UTF8.GetString(data);
     }
 }

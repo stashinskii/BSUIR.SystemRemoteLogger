@@ -37,7 +37,7 @@
                     <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="35" IsIndeterminate="True" />
                     <Label>System Remote Logger</Label>
                 </StackPanel>
-                <Button Margin="0,5">Show more data</Button>
+                <Button Margin="0,5" Click="Button_Click">Show more data</Button>
                 <Button Margin="0,5">Show more data</Button>
                 <Button Margin="0,5">Show more data</Button>
                 <Button Margin="0,5">Show more data</Button>

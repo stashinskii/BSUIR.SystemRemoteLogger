@@ -49,7 +49,7 @@ namespace SystemRemoteLogger.Services
             }
         }
 
-        private async Task Send(string filePath)
+        private void Send(string filePath)
         {
             var mailFrom = _configurationProvider.MailFrom;
             var mailTo = _configurationProvider.MailTo;
