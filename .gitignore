@@ -9,6 +9,11 @@
 *.sln
 *.csproj
 .vs
+*.dll
+*.exe
+*.cache
+*.ide
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

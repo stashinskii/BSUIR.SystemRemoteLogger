@@ -14,6 +14,7 @@ namespace SystemRemoteLogger.Services
         public string Password { get => ConfigurationManager.AppSettings["password"]; }
         public string MailTo { get => ConfigurationManager.AppSettings["mailTo"]; }
         public string Directory { get => ConfigurationManager.AppSettings["directory"]; }
+        public bool UdpLoggingOn { get => bool.Parse(ConfigurationManager.AppSettings["udpLoggingOn"]); }
+        public bool EmailLoggingOn { get => bool.Parse(ConfigurationManager.AppSettings["emailLoggingOn"]); }
     }
-
 }

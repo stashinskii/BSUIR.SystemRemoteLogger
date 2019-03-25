@@ -37,25 +37,24 @@
                     <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="35" IsIndeterminate="True" />
                     <Label>System Remote Logger</Label>
                 </StackPanel>
-                <Button Margin="0,5" Click="Button_Click">Show more data</Button>
-                <Button Margin="0,5">Show more data</Button>
-                <Button Margin="0,5">Show more data</Button>
-                <Button Margin="0,5">Show more data</Button>
+                <Button Margin="0,5" Click="Button_Click">Open UDP Logger Console</Button>
+                <Button Margin="0,5">Send specific log file throw Email</Button>
+
                 <materialDesign:Card
   Background="{DynamicResource MaterialDesignBackground}">
                     <StackPanel Width="300">
                         <Expander
       HorizontalAlignment="Stretch"
-      Header="Expander Example 2a">
+      Header="System Remote Logger (SRL)">
                             <StackPanel
         Orientation="Vertical"
         TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
         Margin="24,8,24,16">
                                 <TextBlock
-          Text="Your Content" />
+          Text="Goals and purposes" />
                                 <TextBlock
           Opacity=".68"
-          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          Text="Main purpose of this project is providing convinient tool for developers and system administrators to manage their computers and computer networks"
           TextWrapping="Wrap" />
                             </StackPanel>
                         </Expander>
@@ -64,14 +63,14 @@
       Height="1"
       HorizontalAlignment="Stretch"
       SnapsToDevicePixels="True" />
-                        <Expander HorizontalAlignment="Stretch" Header="Expander Example 2b">
+                        <Expander HorizontalAlignment="Stretch" Header="About SRL API">
                             <StackPanel Orientation="Vertical"  TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
-                                <TextBlock
-          Text="Your Content" />
-                                <TextBlock
-          Opacity=".68"
-          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          TextWrapping="Wrap" />
+                                <TextBlock Text="You can learn more on our Github page:" />
+                                <TextBlock Opacity=".68" TextWrapping="Wrap" >
+                                     <Hyperlink NavigateUri="https://github.com/stashinskii/BSUIR.SystemRemoteLogger" RequestNavigate="Hyperlink_RequestNavigate">
+                                         System Remote Logger Github
+                                     </Hyperlink>
+                                </TextBlock>
                             </StackPanel>
                         </Expander>
                         <Border
@@ -79,21 +78,6 @@
       Height="1"
       HorizontalAlignment="Stretch"
       SnapsToDevicePixels="True" />
-                        <Expander
-      HorizontalAlignment="Stretch"
-      Header="Expander Example 2c">
-                            <StackPanel
-        Orientation="Vertical"
-        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
-        Margin="24,8,24,16">
-                                <TextBlock
-          Text="Your Content" />
-                                <TextBlock
-          Opacity=".68"
-          Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          TextWrapping="Wrap" />
-                            </StackPanel>
-                        </Expander>
                     </StackPanel>
                 </materialDesign:Card>
             </StackPanel>
@@ -102,15 +86,13 @@
             <materialDesign:Flipper 
   Style="{StaticResource MaterialDesignCardFlipper}">
                 <materialDesign:Flipper.FrontContent>
-                    <Grid
-      Height="256"
-      Width="200">
+                    <Grid Height="300"
+ Width="210">
                         <Grid.RowDefinitions>
-                            <RowDefinition
-          Height="160" />
-                            <RowDefinition
-          Height="*" />
+                            <RowDefinition Height="190" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+                       
                         <materialDesign:ColorZone
         Mode="PrimaryLight"
         VerticalAlignment="Stretch">
@@ -125,33 +107,22 @@
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-                            <TextBlock>
-        James Willock
-                            </TextBlock>
-                            <Button
-          Style="{StaticResource MaterialDesignFlatButton}"
-          Command="{x:Static materialDesign:Flipper.FlipCommand}"
-          Margin="0 4 0 0">
-                                EDIT
+                            <TextBlock x:Name="UserCardText1" HorizontalAlignment="Center" FontWeight="Bold">Current user:</TextBlock>
+                            <TextBlock x:Name="UserCardText" HorizontalAlignment="Center">User Name</TextBlock>
+                            <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
+                                SETTINGS
                             </Button>
                         </StackPanel>
                     </Grid>
                 </materialDesign:Flipper.FrontContent>
                 <materialDesign:Flipper.BackContent>
-                    <Grid
-      Height="256"
-      Width="200">
+                    <Grid Height="300" Width="210">
                         <Grid.RowDefinitions>
-                            <RowDefinition
-          Height="Auto" />
-                            <RowDefinition
-          Height="*" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <materialDesign:ColorZone
-        Mode="Accent"
-        Padding="6">
-                            <StackPanel
-          Orientation="Horizontal">
+                        <materialDesign:ColorZone Mode="Accent" Padding="6">
+                            <StackPanel Orientation="Horizontal">
                                 <Button
             Style="{StaticResource MaterialDesignToolForegroundButton}"
             Command="{x:Static materialDesign:Flipper.FlipCommand}"
@@ -160,61 +131,27 @@
               Kind="ArrowLeft"
               HorizontalAlignment="Right" />
                                 </Button>
-                                <TextBlock
-            Margin="8 0 0 0"
-            VerticalAlignment="Center">
-          EDIT USER
-                                </TextBlock>
+                                <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">SETTINGS</TextBlock>
                             </StackPanel>
                         </materialDesign:ColorZone>
-                        <Grid
-        Grid.Row="1"
-        Margin="0 6 0 0"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Top"
-        Width="172">
+                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <TextBox
-          materialDesign:HintAssist.Hint="First name"
-          materialDesign:HintAssist.IsFloating="True"
-          Margin="0 12 0 0">
-                                James
+                            <TextBox x:Name="EmailDestinationText" materialDesign:HintAssist.Hint="Email destination" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
+                                germanstashinskii@gmail.com
                             </TextBox>
-                            <TextBox
-          Grid.Row="1"
-          materialDesign:HintAssist.Hint="Last name"
-          materialDesign:HintAssist.IsFloating="True"
-          Margin="0 12 0 0">
-                                Willock
-                            </TextBox>
-                            <StackPanel
-          Grid.Row="2"
-          Orientation="Horizontal"
-          Margin="0 12 0 0"
-          HorizontalAlignment="Right">
-                                <TextBlock
-            VerticalAlignment="Center">
-          Email Contact
-                                </TextBlock>
-                                <ToggleButton
-            Margin="8 0 0 0"></ToggleButton>
+                         
+                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center">Email Logging</TextBlock>
+                                <ToggleButton x:Name="EmailLoggingCheck" IsChecked="True"  Margin="8 0 0 0"></ToggleButton>
                             </StackPanel>
-                            <StackPanel
-          Grid.Row="3"
-          Orientation="Horizontal"
-          Margin="0 12 0 0"
-          HorizontalAlignment="Right">
-                                <TextBlock
-            VerticalAlignment="Center">
-          Telephone Contact
-                                </TextBlock>
-                                <ToggleButton
-            Margin="8 0 0 0"></ToggleButton>
+                            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                <TextBlock VerticalAlignment="Center"> UDP Multicast Logging</TextBlock>
+                                <ToggleButton  x:Name="UdpLoggingCheck" IsChecked="True" Margin="6 0 0 0"></ToggleButton>
                             </StackPanel>
                         </Grid>
                     </Grid>

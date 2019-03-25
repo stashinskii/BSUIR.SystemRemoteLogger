@@ -23,3 +23,7 @@ C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\Syst
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\SystemRemoteLogger.WPF.pdb
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\UdpLoggingScreen.baml
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\obj\Debug\UdpLoggingScreen.g.cs
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.AccessControl.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.Permissions.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.Principal.Windows.dll
