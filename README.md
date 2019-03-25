@@ -41,3 +41,6 @@ Small brief to provided assemleys:
 | Services | Кроссплатформенная .NET Standard библиотека содержащая System Remote Logger (SRL) API |
 | Services.Tests | Unit и mock тесты для System Remote Logger (SRL) API | 
 | WPF | Уровень представления построенный при помощи Windows Presentation Foundation и MDIX (Material Design In XAML)|
+
+##### Preview interface screenshot (Скриншот предварительного интерфейса)
+![](https://github.com/stashinskii/BSUIR.SystemRemoteLogger/blob/master/docs/mainScreenPreview.png?raw=true)
