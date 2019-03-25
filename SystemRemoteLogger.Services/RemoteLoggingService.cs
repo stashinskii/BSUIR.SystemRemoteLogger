@@ -8,6 +8,9 @@ namespace SystemRemoteLogger.Services
 {
     public class RemoteLoggingService
     {
+        public delegate void EncryptedDataEventHandler(object sender, EncodingEventArgs e);
+        public event EncryptedDataEventHandler NewMessageOn;
+
         private IConfigurationProvider _configurationProvider;
         private FileSystemWatcher _watcher;
 
@@ -28,9 +31,10 @@ namespace SystemRemoteLogger.Services
                 _watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.FileName | NotifyFilters.LastWrite | NotifyFilters.DirectoryName | NotifyFilters.CreationTime;
 
                 _watcher.Created += new FileSystemEventHandler(DirectoryChanged);
+                _watcher.Changed += new FileSystemEventHandler(DirectoryChanged);
                 _watcher.Error += new ErrorEventHandler(DirectoryChangedError);
                 _watcher.EnableRaisingEvents = true;
-
+              
                 while (true)
                 {
                     await Task.Delay(5000);
@@ -38,9 +42,11 @@ namespace SystemRemoteLogger.Services
             }
             catch (ArgumentException e)
             {
+                NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
             catch (Exception)
             {
+                NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
         }
 
@@ -48,14 +54,15 @@ namespace SystemRemoteLogger.Services
         {
             try
             {
+               
                 WatcherChangeTypes changeTypes = e.ChangeType;
-               // Send(e.FullPath);
-
-                File.Delete(e.FullPath);
+                NewMessageOn(this, new EncodingEventArgs() { data = e.FullPath});
             }
             catch (Exception)
             {
+                NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
+            //throw new Exception();
 
         }
 

@@ -30,7 +30,7 @@ namespace SystemRemoteLogger.WPF
         {
             InitializeComponent();
             udpService = new UdpConnectionService(false, userName);
-            udpService.NewMessageOn += AddNewMessageLine;
+            udpService.NewMessageLineOn += AddNewMessageLine;
             buttonSend.IsEnabled = false;
             Closing += this.OnWindowClosing;
             LocalIpBox.Text = udpService.GetLocalIPAddress();
@@ -73,7 +73,7 @@ namespace SystemRemoteLogger.WPF
             Dispatcher.Invoke(() =>
             {
                 string time = DateTime.Now.ToShortTimeString();
-                lisbox.Items.Add("🙍" + time + " " + EncryptionHelper.Decode(e.dataToDecode));
+                lisbox.Items.Add("🙍" + time + " " +e.data);
             });
         }
 
@@ -85,7 +85,7 @@ namespace SystemRemoteLogger.WPF
                 {
                     throw new Exception("Empty message");
                 }
-                udpService.SendMessage(messageTextBox.Text);
+                udpService.SendMessage(this, new EncodingEventArgs() { data = messageTextBox.Text });
                 messageTextBox.Clear();
             }
             catch (Exception ex)

@@ -14,37 +14,38 @@ namespace SystemRemoteLogger.Services
     {
         private int _port;
         private string _host;
+        IConfigurationProvider _provider;
 
-        public MailSender(int port, string host)
+
+        public MailSender(int port, string host, IConfigurationProvider provider)
         {
             _port = port;
             _host = host;
+            _provider = provider;
+        }
+
+        public void SendMessage(object sender, EncodingEventArgs e)
+        {
+            SendMail(_provider.MailFrom, _provider.MailTo, _provider.Password, "Logging", e.data, "");   
         }
 
         public void SendMail(string mailFrom, string mailTo, string password, string subject, string message, string filePath)
         {
             using (MailMessage mail = new MailMessage())
             {
+               
                 mail.From = new MailAddress(mailFrom);
                 mail.To.Add(mailTo);
+                mail.Subject = subject;
+                mail.Body = message;
 
-                if (!File.Exists(filePath))
-                {
-                    throw new ArgumentException("Invalid file path", nameof(filePath));
-                }
+                SmtpClient client = new SmtpClient(_host, _port);
+                client.EnableSsl = true;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(mailFrom, password);
 
-                using (var textFile = new Attachment(filePath))
-                {
-                    mail.Subject = $"Text file: {filePath}";
-                    mail.Body = $"Attachment is text file with name: {filePath}";
-                    mail.Attachments.Add(textFile);
-
-                    SmtpClient client = new SmtpClient(_host, _port);
-                    client.EnableSsl = true;
-                    client.Credentials = new NetworkCredential(mailFrom, password);
-
-                    client.Send(mail);
-                }
+                client.Send(mail);
             }
         }
     }

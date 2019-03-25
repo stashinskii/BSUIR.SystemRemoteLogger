@@ -24,8 +24,17 @@ namespace SystemRemoteLogger.WPF
         {
             InitializeComponent();
             SetUserCard();
-        }
-
+            RemoteLoggingService loggingService = new RemoteLoggingService(config);
+            UdpConnectionService udpService = new UdpConnectionService(true, "Herman");
+            int port = 587;
+            string host = "smtp.gmail.com";
+            MailSender smtpService = new MailSender(port, host, config);
+   
+            udpService.Connect();
+            loggingService.NewMessageOn += udpService.SendMessage;
+            loggingService.NewMessageOn += smtpService.SendMessage;
+            loggingService.Start();
+        }   
 
         private void SetUserCard()
         {
@@ -35,7 +44,6 @@ namespace SystemRemoteLogger.WPF
             EmailDestinationText.Text = config.MailTo;
             UdpLoggingCheck.IsChecked = config.UdpLoggingOn;
             EmailLoggingCheck.IsChecked = config.EmailLoggingOn;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

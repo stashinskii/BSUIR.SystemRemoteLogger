@@ -10,7 +10,7 @@ namespace SystemRemoteLogger.Services
     public class UdpConnectionService
     {
         public delegate void EncryptedDataEventHandler(object sender, EncodingEventArgs e);
-        public event EncryptedDataEventHandler NewMessageOn;
+        public event EncryptedDataEventHandler NewMessageLineOn;
 
         #region UDP clients
         private UdpClient senderUdpClient;
@@ -55,18 +55,18 @@ namespace SystemRemoteLogger.Services
             //SendMessage("connected to chat");
         }
 
-        public void SendMessage(string message)
+        public void SendMessage(object sender, EncodingEventArgs e)
         {
             try
             {
-                string formattedMesage = string.Format($"{userName} : {message}");
+                string formattedMesage = string.Format($"{userName} : { e.data }");
                 byte[] buffer = EncryptionHelper.Encode(formattedMesage);
                 senderUdpClient.Send(buffer, buffer.Length, remoteEndPoint);
             }
             catch (Exception ex)
             {
-                //TODO: Handle exception
-                //MessageBox.Show(ex.Message, "Error while sending message");
+                byte[] buffer = EncryptionHelper.Encode("Exception on client device");
+                senderUdpClient.Send(buffer, buffer.Length, remoteEndPoint);
             }
         }
 
@@ -103,7 +103,8 @@ namespace SystemRemoteLogger.Services
                 while (IsConnectionAlive)
                 {
                     byte[] data = recievingUdpClient.Receive(ref localEp);
-                    NewMessageOn(this, new EncodingEventArgs { dataToDecode = data}); 
+                    string stringData = EncryptionHelper.Decode(data);
+                    NewMessageLineOn(this, new EncodingEventArgs { data = stringData }); 
                 }
             }
             catch (Exception ex)

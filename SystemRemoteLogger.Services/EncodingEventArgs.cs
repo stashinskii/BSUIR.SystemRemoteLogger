@@ -6,7 +6,7 @@ namespace SystemRemoteLogger.Services
 {
     public class EncodingEventArgs : EventArgs
     {
-        public byte[] dataToDecode;
+        public string data;
         public EncodingEventArgs() : base()
         {
         }
