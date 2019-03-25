@@ -49,7 +49,7 @@ namespace SystemRemoteLogger.Services
             try
             {
                 WatcherChangeTypes changeTypes = e.ChangeType;
-                Send(e.FullPath);
+               // Send(e.FullPath);
 
                 File.Delete(e.FullPath);
             }
