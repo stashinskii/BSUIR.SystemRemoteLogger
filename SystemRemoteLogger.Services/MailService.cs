@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace SystemRemoteLogger.Services
 {
@@ -18,11 +20,9 @@ namespace SystemRemoteLogger.Services
         {
             _configurationProvider = configurationProvider;
             _mailSender = mailSender;
-            _logger = logger;
-            _logger.Info("Service were created!");
         }
 
-        public void Start()
+        public async Task Start()
         {
             try
             {
@@ -38,20 +38,18 @@ namespace SystemRemoteLogger.Services
 
                 while (true)
                 {
-                    Thread.Sleep(5000);
+                    await Task.Delay(5000);
                 }
             }
             catch (ArgumentException e)
             {
-                _logger.Critical(e.Message);
             }
             catch (Exception)
             {
-                _logger.Critical($"Undefined troubles while customizing handlers");
             }
         }
 
-        private void Send(string filePath)
+        private async Task Send(string filePath)
         {
             var mailFrom = _configurationProvider.MailFrom;
             var mailTo = _configurationProvider.MailTo;
@@ -85,23 +83,19 @@ namespace SystemRemoteLogger.Services
         {
             try
             {
-                _logger.Info($"New file {e.FullPath} were added");
                 WatcherChangeTypes changeTypes = e.ChangeType;
                 Send(e.FullPath);
 
                 File.Delete(e.FullPath);
-                _logger.Info($"File {e.FullPath} were deleted");
             }
             catch (Exception)
             {
-                _logger.Critical($"Some troubles while proccessing file {e.FullPath}");
             }
 
         }
 
         private void DirectoryChangedError(object sender, ErrorEventArgs e)
         {
-            _logger.Critical($"Undefined troubles while monitoring directory");
         }
 
         private void CheckDirectory(string path)
