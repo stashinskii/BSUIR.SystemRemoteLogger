@@ -9,6 +9,6 @@ namespace SystemRemoteLogger.Services
     /// </summary>
     public interface IMailService
     {
-        void Start();
+        Task Start();
     }
 }
