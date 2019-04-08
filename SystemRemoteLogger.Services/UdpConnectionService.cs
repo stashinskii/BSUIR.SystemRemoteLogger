@@ -57,6 +57,8 @@ namespace SystemRemoteLogger.Services
 
         public void SendMessage(object sender, EncodingEventArgs e)
         {
+            NLog.ILogger logger = NLog.LogManager.GetCurrentClassLogger();
+            logger.Info(e.data);
             try
             {
                 string formattedMesage = string.Format($"{userName} : { e.data }");

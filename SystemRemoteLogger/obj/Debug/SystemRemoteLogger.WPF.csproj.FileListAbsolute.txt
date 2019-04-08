@@ -27,3 +27,6 @@ C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\Syst
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.AccessControl.dll
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.Permissions.dll
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.config
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.xml

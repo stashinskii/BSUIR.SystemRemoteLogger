@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "22b5d737c3fa171e9af9966bbbcd394027d0de44"
+    "signature": "82cd46bfeadc99fcfb6fa22d2bdf38723c88ec96"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,8 @@
       "SystemRemoteLogger.Services/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
+          "NLog": "4.6.2",
+          "NLog.Config": "4.6.2",
           "System.Configuration.ConfigurationManager": "4.5.0"
         },
         "runtime": {
@@ -22,6 +24,21 @@
           "Microsoft.NETCore.Platforms": "1.1.0"
         }
       },
+      "NLog/4.6.2": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.6.2.9511"
+          }
+        }
+      },
+      "NLog.Config/4.6.2": {
+        "dependencies": {
+          "NLog": "4.6.2",
+          "NLog.Schema": "4.6.2"
+        }
+      },
+      "NLog.Schema/4.6.2": {},
       "System.Buffers/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.Buffers.dll": {
@@ -134,6 +151,27 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "NLog/4.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KjIebwt99P7UziUjkFzBb6+B+MFlPWUk26uMbkyX9g2L0o91CEBzLjBM4x7Fc0oIVccqpX37ModrJeHccs7Iew==",
+      "path": "nlog/4.6.2",
+      "hashPath": "nlog.4.6.2.nupkg.sha512"
+    },
+    "NLog.Config/4.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HiZDbZMBf91icy2EH0fV7bc8ZgE0h10DVCk6wDHbG8bRl40K1C6FiE2ssgUiAM0vRrxDQ5WA13hljXLB4acR6A==",
+      "path": "nlog.config/4.6.2",
+      "hashPath": "nlog.config.4.6.2.nupkg.sha512"
+    },
+    "NLog.Schema/4.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B0Tml2qSvc/hfSPoIqdTgwVRwR2QafAHhfhwuVmE4+TTCT1bvwod77kRldIOt54VS1UNaccJRNNZG9X6oRWyYA==",
+      "path": "nlog.schema/4.6.2",
+      "hashPath": "nlog.schema.4.6.2.nupkg.sha512"
+    },
     "System.Buffers/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -186,7 +224,7 @@
     "System.Security.Permissions/4.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vDQ7q30Soe0a1cPhvxn+7IFmMeTG5IP+hTQrnKQDjTNpD2epqwbZSzMM2Git5TXBr4Kwwhc/0SEtJY0qPoiegA==",
+      "sha512": "sha512-9gdyuARhUR7H+p5CjyUB/zPk7/Xut3wUSP8NJQB6iZr8L3XUXTMdoLeVAg9N4rqF8oIpE7MpdqHdDHQ7XgJe0g==",
       "path": "system.security.permissions/4.5.0",
       "hashPath": "system.security.permissions.4.5.0.nupkg.sha512"
     },

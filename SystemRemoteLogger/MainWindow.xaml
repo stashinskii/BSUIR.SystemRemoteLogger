@@ -7,8 +7,10 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
+     Title="System Remote Logger"
      Background="{DynamicResource MaterialDesignPaper}"
-     FontFamily="{DynamicResource MaterialDesignFont}" Width="1160.051" Height="558.651">
+     FontFamily="{DynamicResource MaterialDesignFont}" Width="1196.051" Height="444.651">
+    
     <Window.InputBindings>
         <KeyBinding Command="{Binding MyCommand}" Key="N"/>
     </Window.InputBindings>
@@ -23,7 +25,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid RenderTransformOrigin="0.256,0.505">
+    <Grid RenderTransformOrigin="0.256,0.505" Margin="0,0,2,191">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -82,81 +84,219 @@
                 </materialDesign:Card>
             </StackPanel>
         </Canvas>
-        <Canvas Margin="20" Grid.Row="0" Grid.Column="1">
-            <materialDesign:Flipper 
-  Style="{StaticResource MaterialDesignCardFlipper}">
-                <materialDesign:Flipper.FrontContent>
-                    <Grid Height="300"
- Width="210">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="190" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                       
-                        <materialDesign:ColorZone
+
+        <Canvas Margin="20,20,20,-171" Grid.Row="0" Grid.Column="1">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:Flipper 
+                Style="{StaticResource MaterialDesignCardFlipper}">
+                        <materialDesign:Flipper.FrontContent>
+                            <Grid Height="300" Width="210">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="190" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <materialDesign:ColorZone
         Mode="PrimaryLight"
         VerticalAlignment="Stretch">
-                            <materialDesign:PackIcon
+                                    <materialDesign:PackIcon
           Kind="AccountCircle"
           Height="128"
           Width="128"
           VerticalAlignment="Center"
           HorizontalAlignment="Center" />
-                        </materialDesign:ColorZone>
-                        <StackPanel
+                                </materialDesign:ColorZone>
+                                <StackPanel
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-                            <TextBlock x:Name="UserCardText1" HorizontalAlignment="Center" FontWeight="Bold">Current user:</TextBlock>
-                            <TextBlock x:Name="UserCardText" HorizontalAlignment="Center">User Name</TextBlock>
-                            <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
-                                SETTINGS
-                            </Button>
-                        </StackPanel>
-                    </Grid>
-                </materialDesign:Flipper.FrontContent>
-                <materialDesign:Flipper.BackContent>
-                    <Grid Height="300" Width="210">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <materialDesign:ColorZone Mode="Accent" Padding="6">
-                            <StackPanel Orientation="Horizontal">
-                                <Button
+                                    <TextBlock x:Name="UserCardText1" HorizontalAlignment="Center" FontWeight="Bold">Current user:</TextBlock>
+                                    <TextBlock x:Name="UserCardText" HorizontalAlignment="Center">User Name</TextBlock>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
+                                        SETTINGS
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:Flipper.FrontContent>
+                        <materialDesign:Flipper.BackContent>
+                            <Grid Height="300" Width="210">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
             Style="{StaticResource MaterialDesignToolForegroundButton}"
             Command="{x:Static materialDesign:Flipper.FlipCommand}"
             HorizontalAlignment="Left">
-                                    <materialDesign:PackIcon
+                                            <materialDesign:PackIcon
               Kind="ArrowLeft"
               HorizontalAlignment="Right" />
-                                </Button>
-                                <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">SETTINGS</TextBlock>
-                            </StackPanel>
-                        </materialDesign:ColorZone>
-                        <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-                            <TextBox x:Name="EmailDestinationText" materialDesign:HintAssist.Hint="Email destination" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
-                                germanstashinskii@gmail.com
-                            </TextBox>
-                         
-                            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center">Email Logging</TextBlock>
-                                <ToggleButton x:Name="EmailLoggingCheck" IsChecked="True"  Margin="8 0 0 0"></ToggleButton>
-                            </StackPanel>
-                            <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                <TextBlock VerticalAlignment="Center"> UDP Multicast Logging</TextBlock>
-                                <ToggleButton  x:Name="UdpLoggingCheck" IsChecked="True" Margin="6 0 0 0"></ToggleButton>
-                            </StackPanel>
-                        </Grid>
-                    </Grid>
-                </materialDesign:Flipper.BackContent>
-            </materialDesign:Flipper>
+                                        </Button>
+                                        <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">SETTINGS</TextBlock>
+                                    </StackPanel>
+                                </materialDesign:ColorZone>
+                                <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="EmailDestinationText" materialDesign:HintAssist.Hint="Email destination" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
+                                        germanstashinskii@gmail.com
+                                    </TextBox>
+
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                        <TextBlock VerticalAlignment="Center">Email Logging</TextBlock>
+                                        <ToggleButton x:Name="EmailLoggingCheck" IsChecked="True"  Margin="8 0 0 0"></ToggleButton>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                        <TextBlock VerticalAlignment="Center"> UDP Multicast Logging</TextBlock>
+                                        <ToggleButton  x:Name="UdpLoggingCheck" IsChecked="True" Margin="6 0 0 0"></ToggleButton>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Flipper.BackContent>
+                    </materialDesign:Flipper>
+                    <materialDesign:Flipper 
+                Style="{StaticResource MaterialDesignCardFlipper}">
+                        <materialDesign:Flipper.FrontContent>
+                            <Grid Height="300" Width="300">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="190" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <materialDesign:ColorZone
+        Mode="Accent"
+        VerticalAlignment="Stretch">
+                                    <materialDesign:PackIcon
+          Kind="FilterList"
+          Height="128"
+          Width="128"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center" />
+                                </materialDesign:ColorZone>
+                                <StackPanel
+        Grid.Row="1"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+                                    <TextBlock x:Name="UserCardText2" HorizontalAlignment="Center">Last system interactions</TextBlock>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
+                                        SHOW
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:Flipper.FrontContent>
+                        <materialDesign:Flipper.BackContent>
+                            <Grid Height="300" Width="400">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+            Style="{StaticResource MaterialDesignToolForegroundButton}"
+            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+            HorizontalAlignment="Left">
+                                            <materialDesign:PackIcon
+              Kind="ArrowLeft"
+              HorizontalAlignment="Right" />
+                                        </Button>
+                                        <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">LIST OF INTERACTIONS</TextBlock>
+                                    </StackPanel>
+                                </materialDesign:ColorZone>
+                                <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="350">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <ListView x:Name="lastInteractionsView" Height="300" Width="350"/>
+
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Flipper.BackContent>
+                    </materialDesign:Flipper>
+                    <materialDesign:Flipper 
+                Style="{StaticResource MaterialDesignCardFlipper}">
+                        <materialDesign:Flipper.FrontContent>
+                            <Grid Height="300" Width="210">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="190" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <materialDesign:ColorZone
+        Mode="Dark"
+        VerticalAlignment="Stretch">
+                                    <materialDesign:PackIcon
+          Kind="Settings"
+          Height="128"
+          Width="128"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center" />
+                                </materialDesign:ColorZone>
+                                <StackPanel
+        Grid.Row="1"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+                                    <TextBlock x:Name="UserCardText15" HorizontalAlignment="Center" FontWeight="Bold">PC Info:</TextBlock>
+                                    <TextBlock x:Name="UserCardText5" HorizontalAlignment="Center">This computer</TextBlock>
+                                    <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
+                                        SHOW
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </materialDesign:Flipper.FrontContent>
+                        <materialDesign:Flipper.BackContent>
+                            <Grid Height="300" Width="210">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <materialDesign:ColorZone Mode="Accent" Padding="6">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button
+            Style="{StaticResource MaterialDesignToolForegroundButton}"
+            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+            HorizontalAlignment="Left">
+                                            <materialDesign:PackIcon
+              Kind="ArrowLeft"
+              HorizontalAlignment="Right" />
+                                        </Button>
+                                        <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">SETTINGS</TextBlock>
+                                    </StackPanel>
+                                </materialDesign:ColorZone>
+                                <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="EmailDestinationText5" materialDesign:HintAssist.Hint="Email destination" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
+                                        germanstashinskii@gmail.com
+                                    </TextBox>
+
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                        <TextBlock VerticalAlignment="Center">Email Logging</TextBlock>
+                                        <ToggleButton x:Name="EmailLoggingCheck5" IsChecked="True"  Margin="8 0 0 0"></ToggleButton>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
+                                        <TextBlock VerticalAlignment="Center"> UDP Multicast Logging</TextBlock>
+                                        <ToggleButton  x:Name="UdpLoggingCheck5" IsChecked="True" Margin="6 0 0 0"></ToggleButton>
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </materialDesign:Flipper.BackContent>
+                    </materialDesign:Flipper>
+                </StackPanel>
+    
+            </StackPanel>
         </Canvas>
     </Grid>
 </Window>

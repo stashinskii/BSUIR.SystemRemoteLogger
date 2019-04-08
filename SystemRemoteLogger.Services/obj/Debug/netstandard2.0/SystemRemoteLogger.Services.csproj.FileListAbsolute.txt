@@ -7,3 +7,4 @@ C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\D
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.AssemblyInfo.cs
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.dll
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\obj\Debug\netstandard2.0\SystemRemoteLogger.Services.pdb
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger.Services\bin\Debug\netstandard2.0\NLog.config

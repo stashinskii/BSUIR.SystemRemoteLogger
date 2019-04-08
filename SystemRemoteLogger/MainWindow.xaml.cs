@@ -9,6 +9,9 @@ using System.DirectoryServices.AccountManagement;
 using System.Windows.Navigation;
 using System.Diagnostics;
 using SystemRemoteLogger.Services;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace SystemRemoteLogger.WPF
 {
@@ -25,15 +28,26 @@ namespace SystemRemoteLogger.WPF
             InitializeComponent();
             SetUserCard();
             RemoteLoggingService loggingService = new RemoteLoggingService(config);
-            UdpConnectionService udpService = new UdpConnectionService(true, "Herman");
-            int port = 587;
-            string host = "smtp.gmail.com";
+            UdpConnectionService udpService = new UdpConnectionService(true, UserPrincipal.Current.DisplayName);
+            int port = config.Port;
+            string host = config.SmtpHost;
             MailSender smtpService = new MailSender(port, host, config);
    
             udpService.Connect();
-            loggingService.NewMessageOn += udpService.SendMessage;
-            loggingService.NewMessageOn += smtpService.SendMessage;
+            if (config.UdpLoggingOn)
+                loggingService.NewMessageOn += udpService.SendMessage;
+            if (config.EmailLoggingOn)
+                loggingService.NewMessageOn += smtpService.SendMessage;
             loggingService.Start();
+
+
+            List<string> lines = File.ReadAllLines("logs/data.log").ToList();
+            lines = Enumerable.Reverse(lines).Take(10).Reverse().ToList();
+            foreach (var line in lines)
+            {
+                lastInteractionsView.Items.Add(line);
+            }
+
         }   
 
         private void SetUserCard()

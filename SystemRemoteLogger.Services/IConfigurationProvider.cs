@@ -15,5 +15,7 @@ namespace SystemRemoteLogger.Services
         string Directory { get; }
         bool UdpLoggingOn { get; }
         bool EmailLoggingOn { get; }
+        int Port { get; }
+        string SmtpHost { get; }
     }
 }
