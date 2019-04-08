@@ -5,6 +5,8 @@ Coursework developed by **Herman Stashynski (Герман Сташинский),
 #### This solution provides ability of logging OS interactions in Windows (and API for Linux) through network protocols (TCP/IP). 
 ###### Services API layer represented as cross-platform .NET Standard Library for Linux and Windows and may be used across any environments.
 
+###### Development process were managed by Trello. See /docs/DevelopmentProcess.docx folder to read report.
+
 Availible interactions to be logged:
 * Information about processes
 * Filesystem interactions
@@ -23,6 +25,8 @@ Small brief to provided assemleys:
 
 #### Russian version:
 #### Данный проект предоставляет возможность журналирования взаимодействий с операционной системой Windows (а также Linux посредством API) через сетевые протоколы (TCP/IP).
+
+###### Процесс разработки контролировался Trello. См. /docs/DevelopmentProcess.docx (отчёт)
 
 ###### Уровень API-сервисов представлен в виде кроссплатформенной .NET Standard бибилотеки для ОС Linux и Windows и может быть использован для разработки на любых средах.
 
