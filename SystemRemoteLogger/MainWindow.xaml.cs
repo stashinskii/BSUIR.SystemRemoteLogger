@@ -12,6 +12,7 @@ using SystemRemoteLogger.Services;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SystemRemoteLogger.WPF
 {
@@ -27,27 +28,30 @@ namespace SystemRemoteLogger.WPF
         {
             InitializeComponent();
             SetUserCard();
-            RemoteLoggingService loggingService = new RemoteLoggingService(config);
-            UdpConnectionService udpService = new UdpConnectionService(true, UserPrincipal.Current.DisplayName);
-            int port = config.Port;
-            string host = config.SmtpHost;
-            MailSender smtpService = new MailSender(port, host, config);
-   
-            udpService.Connect();
-            if (config.UdpLoggingOn)
-                loggingService.NewMessageOn += udpService.SendMessage;
-            if (config.EmailLoggingOn)
-                loggingService.NewMessageOn += smtpService.SendMessage;
-            loggingService.Start();
-
-
-            List<string> lines = File.ReadAllLines("logs/data.log").ToList();
-            lines = Enumerable.Reverse(lines).Take(10).Reverse().ToList();
-            foreach (var line in lines)
-            {
-                lastInteractionsView.Items.Add(line);
+            SetPreviousInteractions();
+            try
+            {       
+                RemoteLoggingService loggingService = new RemoteLoggingService(config);
+                UdpConnectionService udpService = new UdpConnectionService(true, UserPrincipal.Current.DisplayName);
+                int port = config.Port;
+                string host = config.SmtpHost;
+                MailSender smtpService = new MailSender(port, host, config);
+                udpService.Connect();
+                if (config.UdpLoggingOn)
+                    loggingService.NewMessageOn += udpService.SendMessage;
+                if (config.EmailLoggingOn)
+                    loggingService.NewMessageOn += smtpService.SendMessage;
+                loggingService.Start();
+               
             }
-
+            catch (MailLoggingException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong");
+            }
         }   
 
         private void SetUserCard()
@@ -71,6 +75,16 @@ namespace SystemRemoteLogger.WPF
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        private void SetPreviousInteractions()
+        {
+            List<string> lines = File.ReadAllLines("logs/data.log").ToList();
+            lines = Enumerable.Reverse(lines).Take(10).Reverse().ToList();
+            foreach (var line in lines)
+            {
+                lastInteractionsView.Items.Add(line);
+            }
         }
 
       

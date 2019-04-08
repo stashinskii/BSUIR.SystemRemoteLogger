@@ -45,7 +45,14 @@ namespace SystemRemoteLogger.Services
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(mailFrom, password);
 
-                client.Send(mail);
+                try
+                {
+                    client.Send(mail);
+                }
+                catch(Exception e)
+                {
+                    throw new MailLoggingException("Error while sending email. Please, check your mail credentials ot SMTP configuration");
+                }
             }
         }
     }

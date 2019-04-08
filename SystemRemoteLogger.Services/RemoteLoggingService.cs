@@ -62,7 +62,6 @@ namespace SystemRemoteLogger.Services
             {
                 NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
-            //throw new Exception();
 
         }
 
