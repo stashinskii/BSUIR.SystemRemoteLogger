@@ -73,7 +73,7 @@ namespace SystemRemoteLogger.WPF
             Dispatcher.Invoke(() =>
             {
                 string time = DateTime.Now.ToShortTimeString();
-                lisbox.Items.Add("🙍" + time + " " +e.data);
+                lisbox.Items.Add(time + " " +e.data);
             });
         }
 

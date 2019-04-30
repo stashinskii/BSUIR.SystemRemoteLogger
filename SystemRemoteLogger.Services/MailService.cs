@@ -91,7 +91,6 @@ namespace SystemRemoteLogger.Services
             catch (Exception)
             {
             }
-
         }
 
         private void DirectoryChangedError(object sender, ErrorEventArgs e)

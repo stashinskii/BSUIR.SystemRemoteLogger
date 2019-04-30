@@ -14,7 +14,7 @@
     </Window.InputBindings>
     <StackPanel Orientation="Vertical" Margin="10,10,10,10">
         <materialDesign:Card Margin="10,10,10,10" VerticalAlignment="Stretch">
-            <ListView x:Name="lisbox" Height="200" Width="417">
+            <ListView x:Name="lisbox" Height="200">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn/>

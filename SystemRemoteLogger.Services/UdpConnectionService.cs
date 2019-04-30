@@ -8,6 +8,9 @@ using SystemRemoteLogger.Services.Helpers;
 
 namespace SystemRemoteLogger.Services
 {
+    /// <summary>
+    /// Represents service for managing UDP Connection and sending log messages
+    /// </summary>
     public class UdpConnectionService
     {
         public delegate void EncryptedDataEventHandler(object sender, EncodingEventArgs e);
@@ -62,6 +65,8 @@ namespace SystemRemoteLogger.Services
             logger.Info(e.data);
             try
             {
+                if (e.data.Length > 33)
+                    e.data = e.data.Substring(0, 33) + "...";
                 string formattedMesage = string.Format($"{userName} : { e.data }");
                 byte[] buffer = EncryptionHelper.Encode(formattedMesage);
                 senderUdpClient.Send(buffer, buffer.Length, remoteEndPoint);

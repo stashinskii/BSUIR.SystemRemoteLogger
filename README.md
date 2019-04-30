@@ -1,6 +1,6 @@
 ### System Remote Logger (SRL)
 Coursework developed by **Herman Stashynski (Герман Сташинский), 653503**  
-[Read russian version](#Russian-version)
+[Read russian version 🌍](#Russian-version)
 
 #### This solution provides ability of logging OS interactions in Windows (and API for Linux) through network protocols (TCP/IP). 
 ###### Services API layer represented as cross-platform .NET Standard Library for Linux and Windows and may be used across any environments.
@@ -48,3 +48,18 @@ Small brief to provided assemleys:
 
 ##### Main page interface screenshot (Скриншот домашней страницы приложения)
 ![](https://github.com/stashinskii/BSUIR.SystemRemoteLogger/blob/master/docs/mainScreenPreview.png?raw=true)
+
+##### Sample of usage: GIF
+
+Ниже представлены скриншоты с демонстрацией работы программы.
+
+###### SMTP Logging, logging throught E-mail
+Описание процесса: копируем файл в папке, которую отслеживаем. Действие фиксируется системой, логгируется по UDP. Письмо отправляется по почте подписчику. Демонстрируется письмо. Подпись (signature) является html-разметкой и может быть настроено пользователем по желанию. 
+![](https://raw.githubusercontent.com/stashinskii/BSUIR.SystemRemoteLogger/master/docs/mail-smtp.gif)
+
+###### UDP Logging, logging throught UDP-multicast
+![](https://raw.githubusercontent.com/stashinskii/BSUIR.SystemRemoteLogger/master/docs/udp.gif)
+
+###### SRL Interface
+![](https://raw.githubusercontent.com/stashinskii/BSUIR.SystemRemoteLogger/master/docs/animations.gif)
+

@@ -10,10 +10,11 @@
      Title="System Remote Logger"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}" Width="1196.051" Height="444.651">
-    
+
     <Window.InputBindings>
         <KeyBinding Command="{Binding MyCommand}" Key="N"/>
     </Window.InputBindings>
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -25,7 +26,12 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid RenderTransformOrigin="0.256,0.505" Margin="0,0,2,191">
+    <Grid RenderTransformOrigin="0.256,0.505" Margin="0,0,-8,-1" Height="415" VerticalAlignment="Top">
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\germa\source\repos\SystemRemoteLogger\source\back.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
@@ -40,7 +46,6 @@
                     <Label>System Remote Logger</Label>
                 </StackPanel>
                 <Button Margin="0,5" Click="OpenUdpScreen">Open UDP Logger Console</Button>
-                <Button Margin="0,5">Send specific log file throw Email</Button>
 
                 <materialDesign:Card
   Background="{DynamicResource MaterialDesignBackground}">
@@ -291,7 +296,7 @@
                         </materialDesign:Flipper.BackContent>
                     </materialDesign:Flipper>
                 </StackPanel>
-    
+
             </StackPanel>
         </Canvas>
     </Grid>
