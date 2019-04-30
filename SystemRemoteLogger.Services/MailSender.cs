@@ -4,6 +4,8 @@ using System.IO;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Threading.Tasks;
+using SystemRemoteLogger.Services.Helpers;
 
 namespace SystemRemoteLogger.Services
 {
@@ -24,17 +26,17 @@ namespace SystemRemoteLogger.Services
             _provider = provider;
         }
 
-        public void SendMessage(object sender, EncodingEventArgs e)
+        public async Task SendMessage(object sender, EncodingEventArgs e)
         {
-            SendMail(_provider.MailFrom, _provider.MailTo, _provider.Password, $"Logging - {DateTime.Now.ToString()}", e.data, "");   
+            await SendMail(_provider.MailFrom, _provider.MailTo, _provider.Password, $"Logging - {DateTime.Now.ToString()}", e.data, "");   
         }
 
-        public void SendMail(string mailFrom, string mailTo, string password, string subject, string message, string filePath)
+        public async Task SendMail(string mailFrom, string mailTo, string password, string subject, string message, string filePath)
         {
             using (MailMessage mail = new MailMessage())
             {
-               
-                string signature = @"<p><strong><span style=""font-family: Arial, sans-serif; font-size: 11pt; color: #39c2d7; text-transform: uppercase;"" data-bind=""text: name"">Herman Stashynski</span></strong> <br /> <strong><span style=""font-family: Arial, sans-serif; font-size: 10pt; color: #464547;"" data-bind=""text: jobTitle"">Computer Administrator</span></strong> <br /> <br /> <span style=""font-family: Arial, sans-serif; font-size: 8pt; color: #999999;""> CONFIDENTIALITY CAUTION AND DISCLAIMER<br /> This message was created and send automatically by System Remote Logger (SRL) API. Please, do not reply. </span></p>";
+
+                string signature = GlobalConstants.Signature.Replace(GlobalConstants.UsernameTokenPattern, ConfigurationProvider.UserName);
                 mail.From = new MailAddress(mailFrom);
                 mail.To.Add(mailTo);
                 mail.Subject = subject;
@@ -49,7 +51,7 @@ namespace SystemRemoteLogger.Services
 
                 try
                 {
-                    client.Send(mail);
+                    await client.SendMailAsync(mail);
                 }
                 catch(Exception e)
                 {

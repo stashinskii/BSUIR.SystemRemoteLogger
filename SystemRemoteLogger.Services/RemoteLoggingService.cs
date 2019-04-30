@@ -8,7 +8,7 @@ namespace SystemRemoteLogger.Services
 {
     public class RemoteLoggingService
     {
-        public delegate void EncryptedDataEventHandler(object sender, EncodingEventArgs e);
+        public delegate Task EncryptedDataEventHandler(object sender, EncodingEventArgs e);
         public event EncryptedDataEventHandler NewMessageOn;
 
         private IConfigurationProvider _configurationProvider;
@@ -42,11 +42,11 @@ namespace SystemRemoteLogger.Services
             }
             catch (ArgumentException e)
             {
-                NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
+                await NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
             catch (Exception)
             {
-                NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
+                await NewMessageOn(this, new EncodingEventArgs() { data = "Mistakes!" });
             }
         }
 

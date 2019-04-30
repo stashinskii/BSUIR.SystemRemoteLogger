@@ -18,5 +18,6 @@ namespace SystemRemoteLogger.Services
         public bool EmailLoggingOn { get => bool.Parse(ConfigurationManager.AppSettings["emailLoggingOn"]); }
         public int Port { get => int.Parse(ConfigurationManager.AppSettings["port"]); }
         public string SmtpHost { get => ConfigurationManager.AppSettings["smtpHost"]; }
+        public static string UserName { get => ConfigurationManager.AppSettings["userName"]; }
     }
 }

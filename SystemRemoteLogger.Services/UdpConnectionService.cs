@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 using SystemRemoteLogger.Services.Helpers;
 
 namespace SystemRemoteLogger.Services
@@ -55,7 +56,7 @@ namespace SystemRemoteLogger.Services
             //SendMessage("connected to chat");
         }
 
-        public void SendMessage(object sender, EncodingEventArgs e)
+        public async Task SendMessage(object sender, EncodingEventArgs e)
         {
             NLog.ILogger logger = NLog.LogManager.GetCurrentClassLogger();
             logger.Info(e.data);

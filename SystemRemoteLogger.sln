@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.WPF", "SystemRemoteLogger\SystemRemoteLogger.WPF.csproj", "{36806EC3-D799-467C-B3DB-997115B06B85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.Services", "SystemRemoteLogger.Services\SystemRemoteLogger.Services.csproj", "{1CDE9191-3C29-46EE-A56B-E65D580FA75E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemRemoteLogger.Services", "SystemRemoteLogger.Services\SystemRemoteLogger.Services.csproj", "{1CDE9191-3C29-46EE-A56B-E65D580FA75E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SystemRemoteLogger.Services", "SystemRemoteLogger.Services", "{98C9E1B5-7E09-4EAF-B1E7-064202B9FDE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemRemoteLogger.Services.Tests", "SystemRemoteLogger.Services.Tests\SystemRemoteLogger.Services.Tests.csproj", "{D3122C71-94F5-4885-8697-8C9A7D06287A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemRemoteLogger.Services.Tests", "SystemRemoteLogger.Services.Tests\SystemRemoteLogger.Services.Tests.csproj", "{D3122C71-94F5-4885-8697-8C9A7D06287A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
