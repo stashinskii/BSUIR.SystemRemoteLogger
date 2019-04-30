@@ -1,9 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Windows;
 using System.DirectoryServices.AccountManagement;
 using System.Windows.Navigation;
@@ -12,15 +7,9 @@ using SystemRemoteLogger.Services;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-
-using SystemMonitor.BLL;
 
 namespace SystemRemoteLogger.WPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         IConfigurationProvider config;
@@ -79,14 +68,14 @@ namespace SystemRemoteLogger.WPF
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OpenUdpScreen(object sender, RoutedEventArgs e)
         {
             UdpLoggingScreen udpScreen = new UdpLoggingScreen();
             udpScreen.Show();
         }
 
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void HyperlinkRequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
@@ -101,7 +90,5 @@ namespace SystemRemoteLogger.WPF
                 lastInteractionsView.Items.Add(line);
             }
         }
-
-      
     }
 }

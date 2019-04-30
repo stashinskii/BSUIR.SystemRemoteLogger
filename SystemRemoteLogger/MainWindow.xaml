@@ -39,7 +39,7 @@
                     <ProgressBar Style="{StaticResource MaterialDesignCircularProgressBar}" Value="35" IsIndeterminate="True" />
                     <Label>System Remote Logger</Label>
                 </StackPanel>
-                <Button Margin="0,5" Click="Button_Click">Open UDP Logger Console</Button>
+                <Button Margin="0,5" Click="OpenUdpScreen">Open UDP Logger Console</Button>
                 <Button Margin="0,5">Send specific log file throw Email</Button>
 
                 <materialDesign:Card
@@ -69,7 +69,7 @@
                             <StackPanel Orientation="Vertical"  TextBlock.Foreground="{DynamicResource MaterialDesignBody}" Margin="24,8,24,16">
                                 <TextBlock Text="You can learn more on our Github page:" />
                                 <TextBlock Opacity=".68" TextWrapping="Wrap" >
-                                     <Hyperlink NavigateUri="https://github.com/stashinskii/BSUIR.SystemRemoteLogger" RequestNavigate="Hyperlink_RequestNavigate">
+                                     <Hyperlink NavigateUri="https://github.com/stashinskii/BSUIR.SystemRemoteLogger" RequestNavigate="HyperlinkRequestNavigate">
                                          System Remote Logger Github
                                      </Hyperlink>
                                 </TextBlock>
@@ -111,7 +111,7 @@
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-                                    <TextBlock x:Name="UserCardText1" HorizontalAlignment="Center" FontWeight="Bold">Current user:</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold">Current user:</TextBlock>
                                     <TextBlock x:Name="UserCardText" HorizontalAlignment="Center">User Name</TextBlock>
                                     <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
                                         SETTINGS
@@ -184,7 +184,7 @@
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-                                    <TextBlock x:Name="UserCardText2" HorizontalAlignment="Center">Last system interactions</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">Last system interactions</TextBlock>
                                     <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
                                         SHOW
                                     </Button>
@@ -244,8 +244,8 @@
         Grid.Row="1"
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-                                    <TextBlock x:Name="UserCardText15" HorizontalAlignment="Center" FontWeight="Bold">PC Info:</TextBlock>
-                                    <TextBlock x:Name="UserCardText5" HorizontalAlignment="Center">This computer</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" FontWeight="Bold">PC Info:</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center">This computer</TextBlock>
                                     <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
                                         SHOW
                                     </Button>

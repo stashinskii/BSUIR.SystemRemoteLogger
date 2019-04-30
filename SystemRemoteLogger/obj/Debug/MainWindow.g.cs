@@ -43,11 +43,6 @@ namespace SystemRemoteLogger.WPF
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector
     {
 
-
-#line 114 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock UserCardText1;
-
 #line default
 #line hidden
 
@@ -79,14 +74,6 @@ namespace SystemRemoteLogger.WPF
 #line 158 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Primitives.ToggleButton UdpLoggingCheck;
-
-#line default
-#line hidden
-
-
-#line 187 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock UserCardText2;
 
 #line default
 #line hidden
@@ -151,7 +138,7 @@ namespace SystemRemoteLogger.WPF
                 case 1:
 
 #line 42 "..\..\MainWindow.xaml"
-                    ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
+                    ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenUdpScreen);
 
 #line default
 #line hidden
@@ -159,7 +146,7 @@ namespace SystemRemoteLogger.WPF
                 case 2:
 
 #line 72 "..\..\MainWindow.xaml"
-                    ((System.Windows.Documents.Hyperlink)(target)).RequestNavigate += new System.Windows.Navigation.RequestNavigateEventHandler(this.Hyperlink_RequestNavigate);
+                    ((System.Windows.Documents.Hyperlink)(target)).RequestNavigate += new System.Windows.Navigation.RequestNavigateEventHandler(this.HyperlinkRequestNavigate);
 
 #line default
 #line hidden
