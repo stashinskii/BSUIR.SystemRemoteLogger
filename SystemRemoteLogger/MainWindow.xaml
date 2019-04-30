@@ -268,7 +268,7 @@
               Kind="ArrowLeft"
               HorizontalAlignment="Right" />
                                         </Button>
-                                        <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">SETTINGS</TextBlock>
+                                        <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">INFORMATION ABOUT PC</TextBlock>
                                     </StackPanel>
                                 </materialDesign:ColorZone>
                                 <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
@@ -278,18 +278,14 @@
                                         <RowDefinition />
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
-                                    <TextBox x:Name="EmailDestinationText5" materialDesign:HintAssist.Hint="Email destination" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
-                                        germanstashinskii@gmail.com
+                                    <TextBox x:Name="OSName" materialDesign:HintAssist.Hint="OS Name" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
+                                        Windows X
                                     </TextBox>
 
-                                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                        <TextBlock VerticalAlignment="Center">Email Logging</TextBlock>
-                                        <ToggleButton x:Name="EmailLoggingCheck5" IsChecked="True"  Margin="8 0 0 0"></ToggleButton>
-                                    </StackPanel>
-                                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0"  HorizontalAlignment="Right">
-                                        <TextBlock VerticalAlignment="Center"> UDP Multicast Logging</TextBlock>
-                                        <ToggleButton  x:Name="UdpLoggingCheck5" IsChecked="True" Margin="6 0 0 0"></ToggleButton>
-                                    </StackPanel>
+                                    <TextBox x:Name="MachineName" materialDesign:HintAssist.Hint="Machine name Name" materialDesign:HintAssist.IsFloating="True" Margin="0 50 0 0">
+                                        Windows X
+                                    </TextBox>
+
                                 </Grid>
                             </Grid>
                         </materialDesign:Flipper.BackContent>

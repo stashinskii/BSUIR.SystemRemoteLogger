@@ -14,6 +14,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
+using SystemMonitor.BLL;
+
 namespace SystemRemoteLogger.WPF
 {
     /// <summary>
@@ -29,6 +31,7 @@ namespace SystemRemoteLogger.WPF
             InitializeComponent();
             SetUserCard();
             SetPreviousInteractions();
+            SetPCInfo();
             try
             {       
                 RemoteLoggingService loggingService = new RemoteLoggingService(config);
@@ -48,6 +51,7 @@ namespace SystemRemoteLogger.WPF
             {
                 MessageBox.Show(e.Message);
             }
+            
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong");
@@ -63,6 +67,17 @@ namespace SystemRemoteLogger.WPF
             UdpLoggingCheck.IsChecked = config.UdpLoggingOn;
             EmailLoggingCheck.IsChecked = config.EmailLoggingOn;
         }
+
+        private void SetPCInfo()
+        {
+            SystemMonitor.BLL.Service.Service monitorService = new SystemMonitor.BLL.Service.Service();
+            var computerInfo = monitorService.GetComputerInfo();
+
+            OSName.Text = computerInfo.OSName;
+            MachineName.Text = computerInfo.MachineName;
+            //AmountOfProcessorsName.Content = computerInfo.ProcessorsAmount;
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

@@ -30,3 +30,6 @@ C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\Syst
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.config
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.dll
 C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\NLog.xml
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\SystemMonitor.BLL.Interface.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\SystemStatusMonitorWidger.BLL.dll
+C:\Users\germa\source\repos\SystemRemoteLogger\SystemRemoteLogger\bin\Debug\SystemMonitor.BLL.Interface.pdb
