@@ -38,17 +38,22 @@ namespace SystemRemoteLogger.Services
             this.userName = userName;
         }
 
+        /// <summary>
+        /// Disconnect user from this session 
+        /// </summary>
         public void Disconnect()
         {
             if (IsConnectionAlive)
             {
                 IsConnectionAlive = false;
-               // SendMessage("disconnected from chat");
                 recievingUdpClient.DropMulticastGroup(multiCastAddress);
                 recievingUdpClient.Close();
             }
         }
 
+        /// <summary>
+        /// Connect user to this session 
+        /// </summary>
         public void Connect()
         {
             // 224.0.0.0 to 239.255.255.255.
@@ -56,9 +61,13 @@ namespace SystemRemoteLogger.Services
             senderUdpClient = new UdpClient();
             senderUdpClient.JoinMulticastGroup(multiCastAddress);
             remoteEndPoint = new IPEndPoint(multiCastAddress, port);
-            //SendMessage("connected to chat");
         }
 
+        /// <summary>
+        /// Event hander for watchers
+        /// </summary>
+        /// <param name="sender">Specify sender data</param>
+        /// <param name="e">Specify event arguments</param>
         public async Task SendMessage(object sender, EncodingEventArgs e)
         {
             NLog.ILogger logger = NLog.LogManager.GetCurrentClassLogger();
@@ -76,10 +85,35 @@ namespace SystemRemoteLogger.Services
                 byte[] buffer = EncryptionHelper.Encode("Exception on client device");
                 senderUdpClient.Send(buffer, buffer.Length, remoteEndPoint);
             }
+        }   
+
+        /// <summary>
+        /// Starts infinite listener of Udp Multicast
+        /// </summary>
+        public void Listen()
+        {
+            recievingUdpClient = new UdpClient();
+            IPEndPoint localEp = new IPEndPoint(IPAddress.Any, port);
+
+            recievingUdpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+            recievingUdpClient.ExclusiveAddressUse = false;
+
+            recievingUdpClient.Client.Bind(localEp);
+
+            recievingUdpClient.JoinMulticastGroup(multiCastAddress);
+
+            while (IsConnectionAlive)
+            {
+                byte[] data = recievingUdpClient.Receive(ref localEp);
+                string stringData = EncryptionHelper.Decode(data);
+                NewMessageLineOn(this, new EncodingEventArgs { data = stringData }); 
+            }
         }
 
-        
-
+        /// <summary>
+        /// Returns local IP address of local network
+        /// </summary>
+        /// <returns>Local IP address</returns>
         public string GetLocalIPAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
@@ -91,34 +125,6 @@ namespace SystemRemoteLogger.Services
                 }
             }
             throw new Exception("No network adapters with an IPv4 address in the system!");
-        }
-
-        public void Listen()
-        {
-            try
-            {
-                recievingUdpClient = new UdpClient();
-                IPEndPoint localEp = new IPEndPoint(IPAddress.Any, port);
-
-                //SO_REUSEADDR 
-                recievingUdpClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                recievingUdpClient.ExclusiveAddressUse = false;
-
-                recievingUdpClient.Client.Bind(localEp);
-
-                recievingUdpClient.JoinMulticastGroup(multiCastAddress);
-
-                while (IsConnectionAlive)
-                {
-                    byte[] data = recievingUdpClient.Receive(ref localEp);
-                    string stringData = EncryptionHelper.Decode(data);
-                    NewMessageLineOn(this, new EncodingEventArgs { data = stringData }); 
-                }
-            }
-            catch (Exception ex)
-            {
-               
-            }
         }
     }
 }

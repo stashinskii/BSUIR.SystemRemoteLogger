@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SystemRemoteLogger.Services
 {
+    /// <summary>
+    /// Represents service for watching events and log them using SRL API Services
+    /// </summary>
     public class RemoteLoggingService
     {
         public delegate Task EncryptedDataEventHandler(object sender, EncodingEventArgs e);
@@ -19,7 +22,9 @@ namespace SystemRemoteLogger.Services
             _configurationProvider = configurationProvider;
         }
 
-
+        /// <summary>
+        /// Starts async watching of processes and directories
+        /// </summary>
         public async Task Start()
         {
             try

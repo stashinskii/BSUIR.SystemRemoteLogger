@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SystemRemoteLogger.WPF.MainWindow"
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
@@ -46,23 +46,21 @@
                     <Label>System Remote Logger</Label>
                 </StackPanel>
                 <Button Margin="0,5" Click="OpenUdpScreen">Open UDP Logger Console</Button>
+                <Button Margin="0,5" Click="OpenSettingsScreen">Сustomizer tool</Button>
 
-                <materialDesign:Card
-  Background="{DynamicResource MaterialDesignBackground}">
+                <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
                     <StackPanel Width="300">
                         <Expander
-      HorizontalAlignment="Stretch"
-      Header="System Remote Logger (SRL)">
+        HorizontalAlignment="Stretch"
+        Header="System Remote Logger (SRL)">
                             <StackPanel
         Orientation="Vertical"
         TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
         Margin="24,8,24,16">
-                                <TextBlock
-          Text="Goals and purposes" />
-                                <TextBlock
-          Opacity=".68"
-          Text="Main purpose of this project is providing convinient tool for developers and system administrators to manage their computers and computer networks"
-          TextWrapping="Wrap" />
+                                <TextBlock Text="Goals and purposes" />
+                                <TextBlock Opacity=".68"
+        Text="Main purpose of this project is providing convinient tool for developers and system administrators to manage their computers and computer networks"
+        TextWrapping="Wrap" />
                             </StackPanel>
                         </Expander>
                         <Border
@@ -236,19 +234,19 @@
                                 </Grid.RowDefinitions>
 
                                 <materialDesign:ColorZone
-        Mode="Dark"
-        VerticalAlignment="Stretch">
-                                    <materialDesign:PackIcon
-          Kind="Settings"
-          Height="128"
-          Width="128"
-          VerticalAlignment="Center"
-          HorizontalAlignment="Center" />
+                                Mode="Dark"
+                                VerticalAlignment="Stretch">
+                                <materialDesign:PackIcon
+                                        Kind="Settings"
+                                        Height="128"
+                                        Width="128"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center" />   
                                 </materialDesign:ColorZone>
                                 <StackPanel
-        Grid.Row="1"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center">
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"> 
                                     <TextBlock HorizontalAlignment="Center" FontWeight="Bold">PC Info:</TextBlock>
                                     <TextBlock HorizontalAlignment="Center">This computer</TextBlock>
                                     <Button Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Center" Command="{x:Static materialDesign:Flipper.FlipCommand}" Margin="0 4 0 0">
@@ -266,12 +264,12 @@
                                 <materialDesign:ColorZone Mode="Accent" Padding="6">
                                     <StackPanel Orientation="Horizontal">
                                         <Button
-            Style="{StaticResource MaterialDesignToolForegroundButton}"
-            Command="{x:Static materialDesign:Flipper.FlipCommand}"
-            HorizontalAlignment="Left">
+                                            Style="{StaticResource MaterialDesignToolForegroundButton}"
+                                            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                                            HorizontalAlignment="Left">
                                             <materialDesign:PackIcon
-              Kind="ArrowLeft"
-              HorizontalAlignment="Right" />
+                                            Kind="ArrowLeft"
+                                            HorizontalAlignment="Right" />
                                         </Button>
                                         <TextBlock Margin="8 0 0 0"  VerticalAlignment="Center">INFORMATION ABOUT PC</TextBlock>
                                     </StackPanel>
@@ -286,11 +284,9 @@
                                     <TextBox x:Name="OSName" materialDesign:HintAssist.Hint="OS Name" materialDesign:HintAssist.IsFloating="True"  Margin="0 12 0 0">
                                         Windows X
                                     </TextBox>
-
                                     <TextBox x:Name="MachineName" materialDesign:HintAssist.Hint="Machine name Name" materialDesign:HintAssist.IsFloating="True" Margin="0 50 0 0">
                                         Windows X
                                     </TextBox>
-
                                 </Grid>
                             </Grid>
                         </materialDesign:Flipper.BackContent>

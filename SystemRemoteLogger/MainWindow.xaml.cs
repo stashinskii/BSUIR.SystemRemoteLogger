@@ -10,10 +10,16 @@ using System.Linq;
 
 namespace SystemRemoteLogger.WPF
 {
+    /// <summary>
+    /// Represents Home page of application
+    /// </summary>
     public partial class MainWindow : Window
     {
-        IConfigurationProvider config;
-        bool? EmailLogging, UdpLogging;
+        /// <summary>
+        /// Represents fild for configuring SRL Client app
+        /// </summary>
+        private IConfigurationProvider config;
+        private bool EmailLogging, UdpLogging;
 
         public MainWindow()
         {
@@ -21,20 +27,26 @@ namespace SystemRemoteLogger.WPF
             SetUserCard();
             SetPreviousInteractions();
             SetPCInfo();
+
             try
-            {       
+            {
+                EmailLogging = config.EmailLoggingOn;
+                UdpLogging = config.UdpLoggingOn;
                 RemoteLoggingService loggingService = new RemoteLoggingService(config);
                 UdpConnectionService udpService = new UdpConnectionService(true, UserPrincipal.Current.DisplayName);
                 int port = config.Port;
                 string host = config.SmtpHost;
                 MailSender smtpService = new MailSender(port, host, config);
-                udpService.Connect();
-                if (config.UdpLoggingOn)
-                    loggingService.NewMessageOn += udpService.SendMessage;
-                if (config.EmailLoggingOn)
-                    loggingService.NewMessageOn += smtpService.SendMessage;
-                loggingService.Start();
-               
+                try
+                {
+                    udpService.Connect();
+                }
+                catch
+                {
+                    MessageBox.Show("Something went wrong while setting UDP connection");
+                    UdpLogging = false;
+                }
+                this.Subscribe(loggingService, udpService, smtpService);
             }
             catch (MailLoggingException e)
             {
@@ -45,7 +57,16 @@ namespace SystemRemoteLogger.WPF
             {
                 MessageBox.Show("Something went wrong");
             }
-        }   
+        }
+
+        private void Subscribe(RemoteLoggingService loggingService, UdpConnectionService udpService, MailSender smtpService)
+        {
+            if (UdpLogging)
+                loggingService.NewMessageOn += udpService.SendMessage;
+            if (EmailLogging)
+                loggingService.NewMessageOn += smtpService.SendMessage;
+            loggingService.Start();
+        }
 
         private void SetUserCard()
         {
@@ -64,7 +85,6 @@ namespace SystemRemoteLogger.WPF
 
             OSName.Text = computerInfo.OSName;
             MachineName.Text = computerInfo.MachineName;
-            //AmountOfProcessorsName.Content = computerInfo.ProcessorsAmount;
         }
 
 
@@ -79,6 +99,12 @@ namespace SystemRemoteLogger.WPF
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        private void OpenSettingsScreen(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Show();
         }
 
         private void SetPreviousInteractions()

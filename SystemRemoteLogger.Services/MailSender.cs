@@ -16,8 +16,7 @@ namespace SystemRemoteLogger.Services
     {
         private int _port;
         private string _host;
-        IConfigurationProvider _provider;
-
+        private IConfigurationProvider _provider;
 
         public MailSender(int port, string host, IConfigurationProvider provider)
         {
@@ -26,21 +25,35 @@ namespace SystemRemoteLogger.Services
             _provider = provider;
         }
 
+        /// <summary>
+        /// Event hander for watchers
+        /// </summary>
+        /// <param name="sender">Specify sender data</param>
+        /// <param name="e">Specify event arguments</param>
         public async Task SendMessage(object sender, EncodingEventArgs e)
         {
-            await SendMail(_provider.MailFrom, _provider.MailTo, _provider.Password, $"Logging - {DateTime.Now.ToString()}", e.data, "");   
+            await SendMail(_provider.MailFrom, _provider.MailTo, _provider.Password, $"{_provider.MailSubject} - {DateTime.Now.ToString()}", e.data, "");   
         }
 
+        /// <summary>
+        /// Represents method for sending async message through SMTP protocol
+        /// </summary>
+        /// <param name="mailFrom">Author email</param>
+        /// <param name="mailTo">Reciever email</param>
+        /// <param name="password">Author password</param>
+        /// <param name="subject">Mail subject</param>
+        /// <param name="message">Message content (excluding signature and header)</param>
+        /// <param name="filePath">Path to file</param>
         public async Task SendMail(string mailFrom, string mailTo, string password, string subject, string message, string filePath)
         {
             using (MailMessage mail = new MailMessage())
             {
 
-                string signature = GlobalConstants.Signature.Replace(GlobalConstants.UsernameTokenPattern, ConfigurationProvider.UserName);
+                string signature = _provider.Signature.Replace(GlobalConstants.UsernameTokenPattern, ConfigurationProvider.UserName);
                 mail.From = new MailAddress(mailFrom);
                 mail.To.Add(mailTo);
                 mail.Subject = subject;
-                mail.Body = $"Dear administrator, <br><br>You have recieved this OS interaction: {message} <br> <br> Best regards, {signature}<br>"; 
+                mail.Body = _provider.MailHeader.Replace(GlobalConstants.MessageTokenPattern, message).Replace(GlobalConstants.SignatureTokenPattern, signature);
                 mail.IsBodyHtml = true;
 
                 SmtpClient client = new SmtpClient(_host, _port);
@@ -53,7 +66,7 @@ namespace SystemRemoteLogger.Services
                 {
                     await client.SendMailAsync(mail);
                 }
-                catch(Exception e)
+                catch
                 {
                     throw new MailLoggingException("Error while sending email. Please, check your mail credentials ot SMTP configuration");
                 }

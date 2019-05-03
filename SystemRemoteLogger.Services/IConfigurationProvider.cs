@@ -17,5 +17,8 @@ namespace SystemRemoteLogger.Services
         bool EmailLoggingOn { get; }
         int Port { get; }
         string SmtpHost { get; }
+        string Signature { get; }
+        string MailHeader { get; }
+        string MailSubject { get; }
     }
 }
